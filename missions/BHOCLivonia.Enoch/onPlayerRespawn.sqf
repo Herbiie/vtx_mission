@@ -1,0 +1,1 @@
+[player,"BluFor","playerLoadout"] call tb3_fnc_Loadout;
