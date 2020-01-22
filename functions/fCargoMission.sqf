@@ -1,5 +1,8 @@
 private _pos1 = [[worldSize / 2, worldsize / 2, 0],0,worldsize / 2,15,0,20,0,[[getMarkerPos "heli",5000]]] call BIS_fnc_findSafePos;
 private _pos2 = [_pos1,5000,worldsize / 4,15,0,20,0,[[getMarkerPos "heli",5000]]] call BIS_fnc_findSafePos;
+while {(_pos2 distance [worldSize / 2, worldsize / 2, 0]) > (worldsize / 2)} do {
+	_pos2 = [_pos1,5000,worldsize / 4,15,0,20,0,[[getMarkerPos "heli",5000]]] call BIS_fnc_findSafePos;
+};
 missionNameSpace setVariable ["missionOn",true,true];
 missionNameSpace setVariable ["bocMissions",(missionNameSpace getVariable "bocMissions") + 1,true];
 
