@@ -12,6 +12,8 @@ if ("PeaceMode" call BIS_fnc_getParamValue == 1) then {
 if ("Arsenal" call BIS_fnc_getParamValue == 1) then {
 	[box, true] call ace_arsenal_fnc_initBox;
 };
+private _spawnPos = getMarkerPos "heli";
+createMarker ["respawn_west",_spawnPos];
 
 while {true} do {
 	waitUntil {((missionNameSpace getVariable "onCall")) && !(missionNameSpace getVariable "missionOn")};
