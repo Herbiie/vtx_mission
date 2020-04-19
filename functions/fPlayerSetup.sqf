@@ -1,10 +1,10 @@
 private _helicopters = "((configName _x) isKindOf ['vtx_H60_base', configFile >> 'CfgVehicles']) && (getNumber (_x >> 'scope') == 2)" configClasses (configFile >> "CfgVehicles");
 
-private _bocMissionFunctions = "true" configClasses (ConfigFile >> "CfgFunctions" >> "boc" >> "missions");
+private _bocMissionFunctions = "true" configClasses (MissionConfigFile >> "CfgFunctions" >> "boc" >> "missions");
 
 
 if ("PeaceMode" call BIS_fnc_getParamValue == 1) then {
-	_bocMissionFunctions = "getNumber (_x >> 'peaceMode') > 0" configClasses (ConfigFile >> "CfgFunctions" >>"boc" >> "missions")
+	_bocMissionFunctions = "getNumber (_x >> 'peaceMode') > 0" configClasses (MissionConfigFile >> "CfgFunctions" >>"boc" >> "missions")
 };
 
 _mainAction = ["boc_OnCall", "Toggle on Call", "", {if (missionNameSpace getVariable "onCall") then {missionNameSpace setVariable ["onCall",false,true]} else {missionNameSpace setVariable ["onCall",true,true]}}, {(leader group player) == player}] call ace_interact_menu_fnc_createAction;
